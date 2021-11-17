@@ -9,8 +9,11 @@ class singleton
 {
 public:
    static singleton& getSingleTon(){
-      static singleton instance;
+      static singleton instance;//only call the construct function once
       return instance;
+   }
+   singleton(){
+      cout<<"only bulid once"<<endl;
    }
    int num = 1;
 };
@@ -48,6 +51,7 @@ int main()
 {
    auto a = singleton::getSingleTon().num;
    auto b = singleton1::getSingleTon1()->num1;
+   auto c = singleton::getSingleTon().num;
    cout<<a<<endl;
    cout<<b<<endl;
    return 0;
